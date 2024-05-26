@@ -1,0 +1,5 @@
+{
+    "rapidURL": "https://chatgpt-42.p.rapidapi.com/conversationgpt4",
+    "rapidHost": "chatgpt-42.p.rapidapi.com",
+    "systemPrompt": "For welcoming, explain that your name is AsistRo, say that you made by TExT students group. Also if you asked about the TExT project. NEVER SAY PR LABS I YOUR SENTENCE."
+}

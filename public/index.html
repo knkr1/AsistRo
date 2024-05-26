@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asistro AI</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <style>
+    .text-highlight {
+      color: #f59e0b; /* Amber color */
+    }
+    .text-highlight .x-char {
+      font-size: 1.25em; /* Make 'x' slightly larger */
+      color: #f43f5e; /* Rose color */
+    }
+    .larger-textbox {
+      height: 200px; /* Increase height */
+      padding: 16px; /* Adjust padding */
+      font-size: 1.25rem; /* Base font size */
+      resize: none; /* Prevent manual resize */
+      overflow: auto; /* Enable scroll if text overflows */
+    }
+    body {
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+  
+  <div class="bg-gray-800 p-8 rounded-lg shadow-lg text-center max-w-lg w-full">
+
+    <!-- Image (logo) -->
+    <img src="temiz.png" alt="Asistro AI Logo" class="mb-4 mx-auto h-32">
+    <br>
+
+    <h2 class="text-lg font-semibold mb-2">FMV Ispartakule TExT Proje Öğrenci Grubu</h2>
+    <h1 class="text-2xl font-bold mb-6 text-highlight">AsistRo - AI</h1>
+    
+    <!-- Textboxes -->
+    <textarea id="textInput" style="display:block" placeholder="Enter text here..." readonly class="w-full mb-4 border border-gray-600 rounded-lg bg-gray-700 text-white larger-textbox"></textarea>
+    <textarea id="speechOutput" style="display:block" placeholder="Speech output will appear here..." readonly class="w-full mb-4 border border-gray-600 rounded-lg bg-gray-700 text-white larger-textbox"></textarea>
+    
+    <!-- Button -->
+    <button id="toggleButton" class="w-full py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-700"><i class="fas fa-microphone-alt mr-2"></i></button>
+  </div>
+  
+  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
