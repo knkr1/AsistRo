@@ -83,31 +83,29 @@ async function sendReceiveGPTCode(chat) {
 }
 
 
+// Function to speak text using Google's built-in TTS
 async function speak(text) {
-  await fetch('http://127.0.0.1:3000/tts', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ text: text })
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok ' + response.statusText);
-    }
-    return response.json(); // Assuming your backend returns a JSON response
-  })
-  .then(data => {
-    // Assuming the response contains a success message or some data
-    const audio = new Audio(`../audio${data.a}.mp3`); // Path to the saved audio file
-    audio.play(); // Play the audio
-    audio.addEventListener('ended',function(){
-      
-    })
+  // Check if the SpeechSynthesis API is available in the browser
+  if ('speechSynthesis' in window) {
+    // Create a new SpeechSynthesisUtterance object with the provided text
+    const utterance = new SpeechSynthesisUtterance(text);
+    
+    // Use Google as the voice
+    const voices = window.speechSynthesis.getVoices();
+    utterance.voice = voices.find(voice => voice.name === 'Google UK English Male'); // Adjust the voice according to your preference
 
-  })
-  .catch(error => console.error('Error:', error));
+    // Wait for the speech to end
+    utterance.onend = function() {
+      console.log('Speech has finished');
+    };
+
+    // Speak the text
+    window.speechSynthesis.speak(utterance);
+  } else {
+    console.error('Speech synthesis not supported in this browser');
+  }
 }
+
 
 
 function DeleteFile(loc){

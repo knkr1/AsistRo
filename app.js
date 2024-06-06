@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors")
 
 const testModel = require('./models/test.js')
-const aiReceiver = require('./models/aiReceiver.js')
+/*const aiReceiver = require('./models/aiReceiver.js')*/
 const tts = require('./models/tts.js')
 const rapidAPI = require('./models/rapidAPI.js')
 const app = express()
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(express.static('public'))
 
 app.use('/test', testModel)
-app.use('/aichat', aiReceiver)
+/*app.use('/aichat', aiReceiver)*/
 app.use('/tts', tts)
 app.use('/rapidAPI', rapidAPI)
 app.use(express.static('public'))
